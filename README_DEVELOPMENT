@@ -1,0 +1,3 @@
+= Tests
+
+To re-record or to create new vcr cassetes you should create the file spec/apikeys.yml there is already a sample on spec/apikeys.yml.sample
