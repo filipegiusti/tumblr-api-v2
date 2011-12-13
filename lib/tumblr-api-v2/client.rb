@@ -10,17 +10,12 @@ module TumblrApiV2
     attr_reader :consumer_key
     
     METHODS = {
-      apikey: {
-        info:  '/info',
-        posts: '/posts'
-      },
-      none: {
-        avatar: '/avatar'
-      }
+      apikey: [:info, :posts],
+      none:   [:avatar]
     }
 
     METHODS.each do |access, methods|
-      methods.each do |method, path|
+      methods.each do |method|
         define_method method do |*args|
           raise ArgumentError if args.size > 2 || args.size == 0
           raise TumblrError unless send("has_#{access}_access?")
@@ -30,7 +25,7 @@ module TumblrApiV2
           
           default_options = send("#{access}_options")
           blog_domain = filter_blog_domain(blog_url)
-          get_blog_api("/#{blog_domain}#{path}", query: options.merge(default_options) )
+          get_blog_api("/#{blog_domain}/#{method}", query: options.merge(default_options) )
         end
       end
     end
