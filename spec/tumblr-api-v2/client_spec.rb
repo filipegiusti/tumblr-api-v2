@@ -30,6 +30,13 @@ describe TumblrApiV2::Client do
       end
     end
 
+    describe "#avatar" do
+      it "should get blog's avatar" do
+        avatar = TumblrApiV2::Client.new.avatar('http://fgiusti-test-data.tumblr.com/')
+        avatar.headers['content-type'].should  == 'image/png'
+      end
+    end
+
     describe "#posts" do
       it "should get blog's posts" do
         info = @client.posts('http://fgiusti-test-data.tumblr.com/')

@@ -146,7 +146,7 @@ http_interactions:
   recorded_at: Wed, 07 Dec 2011 23:46:49 GMT
 - request:
     method: get
-    uri: http://api.tumblr.com:80/v2/blog/fgiusti-test-data.tumblr.com/avatar?api_key=<CONSUMER-KEY>
+    uri: http://api.tumblr.com:80/v2/blog/fgiusti-test-data.tumblr.com/avatar?
     body: ''
     headers:
       connection:
